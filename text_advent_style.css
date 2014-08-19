@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+}
+
+html, body {
+  background-color:black;
+}
+
+#output {
+  color:#00FF00;
+  margin-bottom:35px;
+  margin-left:5px;
+  margin-top: 5px;
+  font-family:monospace;
+  font-size:16px;
+}
+
+#userInputBox {
+  position:fixed;
+  bottom:3px;
+  width:99%;
+  font-family:monospace;
+  outline:#00FF00 solid medium;
+  margin-left:3px;
+  background-color:black;
+  color:#00FF00;
+  font-size:16px;
+}
+
+#title {
+  position:fixed;
+  top:5px;
+  right:5px;
+  color:red;
+  background-color:black;
+  font-size:48px;
+  outline:red solid medium;
+}
+
+#outputAppend4, #outputAppend6 {
+  color:yellow;
+}
+
+#outputAppend5 {
+  color:yellow;
+  text-decoration:blink;
+}
+
+#outputAppend10 {
+  color:red;
+}
