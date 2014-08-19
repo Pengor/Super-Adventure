@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Untitled</title>
+      <script type="text/javascript" src="text_advent_script.js"></script>
+      <link rel="stylesheet" href="text_advent_style.css">
+        <script type="text/javascript" language="javascript">
+          document.onkeypress = stopRKey;
+        </script>
+    </head>
+
+    <body onload="firstLoad()">
+    
+    <div id="output"></div>
+    
+      <form name="userInputForm" id="footer">
+        <input type="text" name="userInput" id="userInputBox" onsubmit="processForm()" autofocus>
+      </form>
+    
+      <div id="title" onclick="this.style.display = 'none';">Untitled: An exciting adventure!</div>
+      
+    </body>
+
+</html>
