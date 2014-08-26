@@ -1,4 +1,3 @@
-
 var i = 0; // Counter used for naming <div> elements
 var currentRoom;
 var inventory = new Array();
@@ -65,8 +64,6 @@ function processForm() {
     inventoryText();
   else if(examRegExp.test(input))
     examineText(input);
-  else if(ee1RegExp.test(input))
-    ee1Text();
   else
     appendOut("I don't understand that command! Try again or type \"help\" to see available commands!");
   
@@ -99,10 +96,10 @@ function goText(input) {
 	  appendOut("Welcome to: " + currentRoom.name);
 	}
 	else
-	  appendOut("Kraig doesn't see any connecting rooms in that direction!");
+	  appendOut("You don't see any connecting rooms in that direction!");
   }
   else
-    appendOut("Kraig doesn't recognize that direction!");
+    appendOut("You don't recognize that direction!");
 }
 
 // Handles text ouput for take <item> command
@@ -114,7 +111,7 @@ function takeText(input) {
 	  appendOut("You've acquired: " + itemToTake);
 	}
 	else
-	  appendOut("Kraig doesn't see that item here!");
+	  appendOut("That item is invalid!");
 }
 
 // Handles text ouput for use <item> command
@@ -125,11 +122,11 @@ function useText() {
 // Handles text output for inventory command
 function inventoryText() {
   if (inventory.length > 0) {
-    appendOut("Kraig is carrying:");
+    appendOut("You are carrying:");
 	appendOut(inventory.toString());
   }
   else
-    appendOut("Oh no! Kraig's pockets are empty!");
+    appendOut("Oh no! Your pockets are empty!");
 }
 
 // Handles text output for examine <item> command
@@ -142,16 +139,9 @@ function examineText(input) {
     appendOut(currentRoom.contains[currentRoom.contains.indexOf(itemToExam) - 1].desc);
   }
   else
-    appendOut("Kraig can't find that item!");
+    appendOut("That item is invalid!");
 }
-
-// Defintely NOT an easter egg
-function ee1Text() {
-  appendOut("Normally you WOULD call Travis in a dire situation such as this, but he's on the staff retreat today. Maybe you should check his desk.");
-}
-  
-
-  
+ 
 
 // Room Template object - has a name, a description, adjacent rooms, and items contained within
 var RoomObject = function(name, desc) {
@@ -166,11 +156,11 @@ RoomObject.prototype.toString = function toString() {
 }
 
 // Connects two rooms with specific linkage
-function connectRooms(room1, direc1, room2, direc2) {
-  room1.adjacentTo.push(room2);
-  room1.adjacentTo.push(direc1);
-  room2.adjacentTo.push(room1);
-  room2.adjacentTo.push(direc2);
+function connectRooms(roomA, direcA, roomB, direcB) {
+  roomA.adjacentTo.push(roomB);
+  roomA.adjacentTo.push(direcA);
+  roomB.adjacentTo.push(roomA);
+  roomB.adjacentTo.push(direcB);
 }
 
 // Item Template object - has a name, description, and array of rooms usable in.
@@ -230,4 +220,5 @@ addItemToRoom(scone, xavrLobby);
 
 // Item functionality
 //TODO
+
 
